@@ -2,7 +2,7 @@ dockworker:
   version: '6'
   application:
     name: Mysql Instance for Course Reserves
-     uri: https://reserves.mysql.lib.unb.ca
+    uri: https://reserves.mysql.lib.unb.ca
     description: >
       A Mysql instance for course reserves.
     topics:
