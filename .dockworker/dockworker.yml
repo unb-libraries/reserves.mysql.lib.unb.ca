@@ -1,0 +1,52 @@
+dockworker:
+  version: '6'
+  application:
+    name: Mysql Instance for Course Reserves
+     uri: https://reserves.mysql.lib.unb.ca
+    description: >
+      A Mysql instance for course reserves.
+    topics:
+      - mysql
+      - reserves
+    identifiers:
+      id: reserves.mysql.lib.unb.ca
+      slug: reserves-mysql-lib-unb-ca
+      short_slug: resmysql
+      uuid: 3515
+    framework:
+      name: Mysql
+      version: 10.4
+      startup_finished_marker: 'mysqld: ready for connections'
+      endpoint:
+        name: http
+        port: 3306
+        readiness_timeout: 15
+    license:
+      license: MIT
+      holder: University of New Brunswick Libraries
+    shell:
+      path: /bin/sh
+  endpoints:
+    env:
+      - dev
+      - prod
+    deployments:
+      reserves-mysql-lib-unb-ca:
+        default: true
+        managed: true
+        name: reserves-mysql-lib-unb-ca
+  workflows:
+    vcs:
+      type: github
+      owner: unb-libraries
+      name: reserves.mysql.lib.unb.ca
+    jira:
+      project_keys:
+        - IN
+    image:
+      name: ghcr.io/unb-libraries/reserves.mysql.lib.unb.ca
+      parent: mysql:5.7
+      repository: GitHub
+      push-branches:
+        - dev
+        - prod
