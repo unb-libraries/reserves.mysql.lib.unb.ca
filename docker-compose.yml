@@ -1,5 +1,5 @@
 services:
-  reserves.mysql.lib.unb.ca:
+  reserves-mysql-lib-unb-ca:
     build:
       context: .
     command: mysqld --skip-name-resolve --max_allowed_packet=64M
